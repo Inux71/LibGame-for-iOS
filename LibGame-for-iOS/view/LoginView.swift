@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct LoginView: View {
+    var onNavigateToDashboard: () -> Void
+    
     var body: some View {
         VStack {
             Text("LibGame")
                 .font(.system(size: 32, weight: .bold))
             
             Button("Sign In") {
-                
+                self.onNavigateToDashboard()
             }
         }
         .buttonStyle(.borderedProminent)

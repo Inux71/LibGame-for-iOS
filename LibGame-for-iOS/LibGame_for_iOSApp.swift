@@ -9,9 +9,34 @@ import SwiftUI
 
 @main
 struct LibGame_for_iOSApp: App {
+    @State private var _path: [String] = []
+    
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            NavigationStack(path: self.$_path) {
+                LoginView(onNavigateToDashboard: {
+                    self._path.append("dashboard")
+                })
+                .navigationDestination(for: String.self) { path in
+                    self.getDestination(for: path)
+                }
+            }
+        }
+    }
+    
+    private func getDestination(for path: String) -> AnyView {
+        switch path {
+            case "dashboard":
+                return AnyView(DashboardView(
+                    onNavigateToAddGame: {
+                        self._path.append("add")
+                    },
+                    onSignOut: {
+                        self._path.removeAll()
+                    }
+                ))
+            default:
+                return AnyView(EmptyView())
         }
     }
 }
