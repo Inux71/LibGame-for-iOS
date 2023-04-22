@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct LibGame_for_iOSApp: App {
+    @UIApplicationDelegateAdaptor(LibGameAppDelegate.self) var delegate
+    
     @State private var _path: [String] = []
     
     var body: some Scene {
