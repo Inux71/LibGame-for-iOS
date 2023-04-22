@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuthUI
 
 struct DashboardView: View {
     var onNavigateToAddGame: () -> Void
@@ -32,7 +33,14 @@ struct DashboardView: View {
                 Image(systemName: "plus")
             }
             
-            Button(action: self.onSignOut) {
+            Button(action: {
+                do {
+                    try Auth.auth().signOut()
+                    self.onSignOut()
+                } catch {
+                    
+                }
+            }) {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
             }
         }
