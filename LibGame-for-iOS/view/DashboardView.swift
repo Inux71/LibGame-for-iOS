@@ -11,6 +11,8 @@ struct DashboardView: View {
     var onNavigateToAddGame: () -> Void
     var onSignOut: () -> Void
     
+    @State private var _searchText: String = ""
+    
     var body: some View {
         TabView {
             Text("playing")
@@ -34,5 +36,6 @@ struct DashboardView: View {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
             }
         }
+        .searchable(text: self.$_searchText, prompt: "Search")
     }
 }

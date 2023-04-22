@@ -35,6 +35,10 @@ struct LibGame_for_iOSApp: App {
                         self._path.removeAll()
                     }
                 ))
+            case "add":
+                return AnyView(AddGameView(onReturnToDashboard: {
+                    self._path.removeLast()
+                }))
             default:
                 return AnyView(EmptyView())
         }
