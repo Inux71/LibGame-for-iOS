@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC910C9129F3ED3C00815033 /* AddGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC910C9029F3ED3C00815033 /* AddGameView.swift */; };
 		CCA94FB329F3D58600F37A9B /* LibGame_for_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94FB229F3D58600F37A9B /* LibGame_for_iOSApp.swift */; };
-		CCA94FB529F3D58600F37A9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94FB429F3D58600F37A9B /* ContentView.swift */; };
 		CCA94FB729F3D58600F37A9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA94FB629F3D58600F37A9B /* Assets.xcassets */; };
 		CCA94FBA29F3D58600F37A9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA94FB929F3D58600F37A9B /* Preview Assets.xcassets */; };
+		CCA94FC229F3D73800F37A9B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94FC129F3D73800F37A9B /* LoginView.swift */; };
+		CCA94FC429F3DA1400F37A9B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94FC329F3DA1400F37A9B /* DashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC910C9029F3ED3C00815033 /* AddGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameView.swift; sourceTree = "<group>"; };
 		CCA94FAF29F3D58600F37A9B /* LibGame-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LibGame-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA94FB229F3D58600F37A9B /* LibGame_for_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibGame_for_iOSApp.swift; sourceTree = "<group>"; };
-		CCA94FB429F3D58600F37A9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CCA94FB629F3D58600F37A9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCA94FB929F3D58600F37A9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CCA94FC129F3D73800F37A9B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		CCA94FC329F3DA1400F37A9B /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,8 @@
 		CCA94FB129F3D58600F37A9B /* LibGame-for-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CCA94FC029F3D72600F37A9B /* view */,
 				CCA94FB229F3D58600F37A9B /* LibGame_for_iOSApp.swift */,
-				CCA94FB429F3D58600F37A9B /* ContentView.swift */,
 				CCA94FB629F3D58600F37A9B /* Assets.xcassets */,
 				CCA94FB829F3D58600F37A9B /* Preview Content */,
 			);
@@ -65,6 +69,16 @@
 				CCA94FB929F3D58600F37A9B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CCA94FC029F3D72600F37A9B /* view */ = {
+			isa = PBXGroup;
+			children = (
+				CCA94FC129F3D73800F37A9B /* LoginView.swift */,
+				CCA94FC329F3DA1400F37A9B /* DashboardView.swift */,
+				CC910C9029F3ED3C00815033 /* AddGameView.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +151,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCA94FB529F3D58600F37A9B /* ContentView.swift in Sources */,
+				CCA94FC229F3D73800F37A9B /* LoginView.swift in Sources */,
+				CCA94FC429F3DA1400F37A9B /* DashboardView.swift in Sources */,
+				CC910C9129F3ED3C00815033 /* AddGameView.swift in Sources */,
 				CCA94FB329F3D58600F37A9B /* LibGame_for_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
