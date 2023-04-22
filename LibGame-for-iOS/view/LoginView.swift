@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import FirebaseAuthUI
 
 struct LoginView: View {
     var onNavigateToDashboard: () -> Void
+    var onNavigateToFirebaseUIAuth: () -> Void
     
     var body: some View {
         VStack {
@@ -16,7 +18,11 @@ struct LoginView: View {
                 .font(.system(size: 32, weight: .bold))
             
             Button("Sign In") {
-                self.onNavigateToDashboard()
+                if Auth.auth().currentUser != nil {
+                    self.onNavigateToDashboard()
+                } else {
+                    self.onNavigateToFirebaseUIAuth()
+                }
             }
         }
         .buttonStyle(.borderedProminent)

@@ -8,21 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		CC910C9129F3ED3C00815033 /* AddGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC910C9029F3ED3C00815033 /* AddGameView.swift */; };
-		CCA94FB329F3D58600F37A9B /* LibGame_for_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94FB229F3D58600F37A9B /* LibGame_for_iOSApp.swift */; };
+		CCA94FB329F3D58600F37A9B /* LibGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94FB229F3D58600F37A9B /* LibGameApp.swift */; };
 		CCA94FB729F3D58600F37A9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA94FB629F3D58600F37A9B /* Assets.xcassets */; };
 		CCA94FBA29F3D58600F37A9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA94FB929F3D58600F37A9B /* Preview Assets.xcassets */; };
 		CCA94FC229F3D73800F37A9B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94FC129F3D73800F37A9B /* LoginView.swift */; };
 		CCA94FC429F3DA1400F37A9B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94FC329F3DA1400F37A9B /* DashboardView.swift */; };
+		CCB0CCEE29F3F2D1005D7BA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCB0CCED29F3F2D1005D7BA5 /* GoogleService-Info.plist */; };
+		CCB0CCF129F3F37D005D7BA5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CCB0CCF029F3F37D005D7BA5 /* FirebaseAuth */; };
+		CCB0CCF329F3F37D005D7BA5 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = CCB0CCF229F3F37D005D7BA5 /* FirebaseDatabase */; };
+		CCB0CCF529F3F37D005D7BA5 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CCB0CCF429F3F37D005D7BA5 /* FirebaseDatabaseSwift */; };
+		CCB0CCF829F3F414005D7BA5 /* FirebaseAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = CCB0CCF729F3F414005D7BA5 /* FirebaseAuthUI */; };
+		CCB0CCFA29F3F414005D7BA5 /* FirebaseDatabaseUI in Frameworks */ = {isa = PBXBuildFile; productRef = CCB0CCF929F3F414005D7BA5 /* FirebaseDatabaseUI */; };
+		CCB0CCFC29F3F414005D7BA5 /* FirebaseEmailAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = CCB0CCFB29F3F414005D7BA5 /* FirebaseEmailAuthUI */; };
+		CCB0CCFE29F3F414005D7BA5 /* FirebaseFacebookAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = CCB0CCFD29F3F414005D7BA5 /* FirebaseFacebookAuthUI */; };
+		CCB0CD0029F3F414005D7BA5 /* FirebaseGoogleAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = CCB0CCFF29F3F414005D7BA5 /* FirebaseGoogleAuthUI */; };
+		CCB0CD0229F3F414005D7BA5 /* FirebaseOAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = CCB0CD0129F3F414005D7BA5 /* FirebaseOAuthUI */; };
+		CCB0CD0429F3F456005D7BA5 /* LibGameAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0CD0329F3F456005D7BA5 /* LibGameAppDelegate.swift */; };
+		CCB0CD0629F3F810005D7BA5 /* FirebaseUIAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0CD0529F3F810005D7BA5 /* FirebaseUIAuthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CC910C9029F3ED3C00815033 /* AddGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameView.swift; sourceTree = "<group>"; };
 		CCA94FAF29F3D58600F37A9B /* LibGame-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LibGame-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CCA94FB229F3D58600F37A9B /* LibGame_for_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibGame_for_iOSApp.swift; sourceTree = "<group>"; };
+		CCA94FB229F3D58600F37A9B /* LibGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibGameApp.swift; sourceTree = "<group>"; };
 		CCA94FB629F3D58600F37A9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCA94FB929F3D58600F37A9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CCA94FC129F3D73800F37A9B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CCA94FC329F3DA1400F37A9B /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		CCB0CCED29F3F2D1005D7BA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CCB0CD0329F3F456005D7BA5 /* LibGameAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibGameAppDelegate.swift; sourceTree = "<group>"; };
+		CCB0CD0529F3F810005D7BA5 /* FirebaseUIAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUIAuthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +45,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCB0CCFC29F3F414005D7BA5 /* FirebaseEmailAuthUI in Frameworks */,
+				CCB0CCF529F3F37D005D7BA5 /* FirebaseDatabaseSwift in Frameworks */,
+				CCB0CD0029F3F414005D7BA5 /* FirebaseGoogleAuthUI in Frameworks */,
+				CCB0CCF329F3F37D005D7BA5 /* FirebaseDatabase in Frameworks */,
+				CCB0CCFE29F3F414005D7BA5 /* FirebaseFacebookAuthUI in Frameworks */,
+				CCB0CCFA29F3F414005D7BA5 /* FirebaseDatabaseUI in Frameworks */,
+				CCB0CCF129F3F37D005D7BA5 /* FirebaseAuth in Frameworks */,
+				CCB0CD0229F3F414005D7BA5 /* FirebaseOAuthUI in Frameworks */,
+				CCB0CCF829F3F414005D7BA5 /* FirebaseAuthUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,10 +79,12 @@
 		CCA94FB129F3D58600F37A9B /* LibGame-for-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CCB0CCED29F3F2D1005D7BA5 /* GoogleService-Info.plist */,
 				CCA94FC029F3D72600F37A9B /* view */,
-				CCA94FB229F3D58600F37A9B /* LibGame_for_iOSApp.swift */,
+				CCA94FB229F3D58600F37A9B /* LibGameApp.swift */,
 				CCA94FB629F3D58600F37A9B /* Assets.xcassets */,
 				CCA94FB829F3D58600F37A9B /* Preview Content */,
+				CCB0CD0329F3F456005D7BA5 /* LibGameAppDelegate.swift */,
 			);
 			path = "LibGame-for-iOS";
 			sourceTree = "<group>";
@@ -77,6 +103,7 @@
 				CCA94FC129F3D73800F37A9B /* LoginView.swift */,
 				CCA94FC329F3DA1400F37A9B /* DashboardView.swift */,
 				CC910C9029F3ED3C00815033 /* AddGameView.swift */,
+				CCB0CD0529F3F810005D7BA5 /* FirebaseUIAuthView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -97,6 +124,17 @@
 			dependencies = (
 			);
 			name = "LibGame-for-iOS";
+			packageProductDependencies = (
+				CCB0CCF029F3F37D005D7BA5 /* FirebaseAuth */,
+				CCB0CCF229F3F37D005D7BA5 /* FirebaseDatabase */,
+				CCB0CCF429F3F37D005D7BA5 /* FirebaseDatabaseSwift */,
+				CCB0CCF729F3F414005D7BA5 /* FirebaseAuthUI */,
+				CCB0CCF929F3F414005D7BA5 /* FirebaseDatabaseUI */,
+				CCB0CCFB29F3F414005D7BA5 /* FirebaseEmailAuthUI */,
+				CCB0CCFD29F3F414005D7BA5 /* FirebaseFacebookAuthUI */,
+				CCB0CCFF29F3F414005D7BA5 /* FirebaseGoogleAuthUI */,
+				CCB0CD0129F3F414005D7BA5 /* FirebaseOAuthUI */,
+			);
 			productName = "LibGame-for-iOS";
 			productReference = CCA94FAF29F3D58600F37A9B /* LibGame-for-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -125,6 +163,10 @@
 				Base,
 			);
 			mainGroup = CCA94FA629F3D58600F37A9B;
+			packageReferences = (
+				CCB0CCEF29F3F37D005D7BA5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CCB0CCF629F3F414005D7BA5 /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */,
+			);
 			productRefGroup = CCA94FB029F3D58600F37A9B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,6 +183,7 @@
 			files = (
 				CCA94FBA29F3D58600F37A9B /* Preview Assets.xcassets in Resources */,
 				CCA94FB729F3D58600F37A9B /* Assets.xcassets in Resources */,
+				CCB0CCEE29F3F2D1005D7BA5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,9 +195,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCA94FC229F3D73800F37A9B /* LoginView.swift in Sources */,
+				CCB0CD0629F3F810005D7BA5 /* FirebaseUIAuthView.swift in Sources */,
+				CCB0CD0429F3F456005D7BA5 /* LibGameAppDelegate.swift in Sources */,
 				CCA94FC429F3DA1400F37A9B /* DashboardView.swift in Sources */,
 				CC910C9129F3ED3C00815033 /* AddGameView.swift in Sources */,
-				CCA94FB329F3D58600F37A9B /* LibGame_for_iOSApp.swift in Sources */,
+				CCA94FB329F3D58600F37A9B /* LibGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +400,73 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CCB0CCEF29F3F37D005D7BA5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 10.8.1;
+			};
+		};
+		CCB0CCF629F3F414005D7BA5 /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/FirebaseUI-iOS.git";
+			requirement = {
+				kind = exactVersion;
+				version = 13.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CCB0CCF029F3F37D005D7BA5 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCB0CCEF29F3F37D005D7BA5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		CCB0CCF229F3F37D005D7BA5 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCB0CCEF29F3F37D005D7BA5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		CCB0CCF429F3F37D005D7BA5 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCB0CCEF29F3F37D005D7BA5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		CCB0CCF729F3F414005D7BA5 /* FirebaseAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCB0CCF629F3F414005D7BA5 /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseAuthUI;
+		};
+		CCB0CCF929F3F414005D7BA5 /* FirebaseDatabaseUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCB0CCF629F3F414005D7BA5 /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseDatabaseUI;
+		};
+		CCB0CCFB29F3F414005D7BA5 /* FirebaseEmailAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCB0CCF629F3F414005D7BA5 /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseEmailAuthUI;
+		};
+		CCB0CCFD29F3F414005D7BA5 /* FirebaseFacebookAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCB0CCF629F3F414005D7BA5 /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseFacebookAuthUI;
+		};
+		CCB0CCFF29F3F414005D7BA5 /* FirebaseGoogleAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCB0CCF629F3F414005D7BA5 /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseGoogleAuthUI;
+		};
+		CCB0CD0129F3F414005D7BA5 /* FirebaseOAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCB0CCF629F3F414005D7BA5 /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseOAuthUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CCA94FA729F3D58600F37A9B /* Project object */;
 }

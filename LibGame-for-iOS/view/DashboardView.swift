@@ -6,12 +6,23 @@
 //
 
 import SwiftUI
+import FirebaseAuthUI
 
 struct DashboardView: View {
     var onNavigateToAddGame: () -> Void
     var onSignOut: () -> Void
     
     @State private var _searchText: String = ""
+    
+    private let _auth: Auth
+    private let _user: User?
+    
+    init(onNavigateToAddGame: @escaping () -> Void, onSignOut: @escaping () -> Void) {
+        self.onNavigateToAddGame = onNavigateToAddGame
+        self.onSignOut = onSignOut
+        self._auth = Auth.auth()
+        self._user = self._auth.currentUser
+    }
     
     var body: some View {
         TabView {
@@ -25,14 +36,21 @@ struct DashboardView: View {
                     Label("Played", systemImage: "checklist.checked")
                 }
         }
-        .navigationTitle("Kacper Grabiec")
+        .navigationTitle(self._user?.displayName ?? "")
         .navigationBarBackButtonHidden(true)
         .toolbar {
             Button(action: self.onNavigateToAddGame) {
                 Image(systemName: "plus")
             }
             
-            Button(action: self.onSignOut) {
+            Button(action: {
+                do {
+                    try self._auth.signOut()
+                    self.onSignOut()
+                } catch {
+                    
+                }
+            }) {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
             }
         }

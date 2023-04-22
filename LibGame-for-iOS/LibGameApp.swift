@@ -8,15 +8,22 @@
 import SwiftUI
 
 @main
-struct LibGame_for_iOSApp: App {
+struct LibGameApp: App {
+    @UIApplicationDelegateAdaptor(LibGameAppDelegate.self) var delegate
+    
     @State private var _path: [String] = []
     
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: self.$_path) {
-                LoginView(onNavigateToDashboard: {
-                    self._path.append("dashboard")
-                })
+                LoginView(
+                    onNavigateToDashboard: {
+                        self._path.append("dashboard")
+                    },
+                    onNavigateToFirebaseUIAuth: {
+                        self._path.append("auth")
+                    }
+                )
                 .navigationDestination(for: String.self) { path in
                     self.getDestination(for: path)
                 }
@@ -26,6 +33,10 @@ struct LibGame_for_iOSApp: App {
     
     private func getDestination(for path: String) -> AnyView {
         switch path {
+            case "auth":
+                return AnyView(FirebaseUIAuthView(onNavigateToDashboard: {
+                    self._path.append("dashboard")
+                }))
             case "dashboard":
                 return AnyView(DashboardView(
                     onNavigateToAddGame: {
