@@ -11,7 +11,7 @@ import SwiftUI
 struct LibGame_for_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
         }
     }
 }
