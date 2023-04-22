@@ -17,5 +17,6 @@ struct AddGameView: View {
             
         }
         .searchable(text: self.$_searchText, prompt: "Search")
+        .navigationTitle("Add Game")
     }
 }
