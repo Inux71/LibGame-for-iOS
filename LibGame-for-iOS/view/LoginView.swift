@@ -12,6 +12,8 @@ struct LoginView: View {
     var onNavigateToDashboard: () -> Void
     var onNavigateToFirebaseUIAuth: () -> Void
     
+    @EnvironmentObject private var _firebaseManager: FirebaseManager
+    
     var body: some View {
         VStack {
             Text("LibGame")
@@ -19,6 +21,7 @@ struct LoginView: View {
             
             Button("Sign In") {
                 if Auth.auth().currentUser != nil {
+                    self._firebaseManager.fetchGames()
                     self.onNavigateToDashboard()
                 } else {
                     self.onNavigateToFirebaseUIAuth()

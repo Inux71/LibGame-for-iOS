@@ -12,9 +12,11 @@ struct AddGameView: View {
     
     @State private var _searchText: String = ""
     
+    @EnvironmentObject private var _firebaseManager: FirebaseManager
+    
     var body: some View {
-        VStack {
-            
+        List(self._firebaseManager.games) { game in
+            Text(game.title)
         }
         .searchable(text: self.$_searchText, prompt: "Search")
         .navigationTitle("Add Game")

@@ -14,6 +14,8 @@ struct FirebaseUIAuthView: UIViewControllerRepresentable {
     
     private let _providers: [FUIAuthProvider] = [FUIEmailAuth()]
     
+    @EnvironmentObject private var _firebaseManager: FirebaseManager
+    
     func makeUIViewController(context: Context) -> UIViewController {
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = context.coordinator
@@ -25,18 +27,26 @@ struct FirebaseUIAuthView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(onNavigateToDashboard: self.onNavigateToDashboard)
+        Coordinator(
+            onNavigateToDashboard: self.onNavigateToDashboard,
+            fetchDataFromFirebase: {
+                self._firebaseManager.fetchGames()
+            }
+        )
     }
     
     class Coordinator: NSObject, FUIAuthDelegate {
         let onNavigateToDashboard: () -> Void
+        let fetchDataFromFirebase: () -> Void
         
-        init(onNavigateToDashboard: @escaping () -> Void) {
+        init(onNavigateToDashboard: @escaping () -> Void, fetchDataFromFirebase: @escaping () -> Void) {
             self.onNavigateToDashboard = onNavigateToDashboard
+            self.fetchDataFromFirebase = fetchDataFromFirebase
         }
         
         func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
             if authDataResult?.user != nil {
+                self.fetchDataFromFirebase()
                 self.onNavigateToDashboard()
             }
         }

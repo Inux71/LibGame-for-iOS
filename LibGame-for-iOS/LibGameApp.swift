@@ -13,6 +13,8 @@ struct LibGameApp: App {
     
     @State private var _path: [String] = []
     
+    @StateObject private var _firebaseManager = FirebaseManager()
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: self.$_path) {
@@ -24,6 +26,7 @@ struct LibGameApp: App {
                         self._path.append("auth")
                     }
                 )
+                .environmentObject(self._firebaseManager)
                 .navigationDestination(for: String.self) { path in
                     self.getDestination(for: path)
                 }
@@ -35,21 +38,27 @@ struct LibGameApp: App {
         switch path {
             case "auth":
                 return AnyView(FirebaseUIAuthView(onNavigateToDashboard: {
-                    self._path.append("dashboard")
-                }))
+                        self._path.append("dashboard")
+                    })
+                    .environmentObject(self._firebaseManager)
+                )
             case "dashboard":
                 return AnyView(DashboardView(
-                    onNavigateToAddGame: {
-                        self._path.append("add")
-                    },
-                    onSignOut: {
-                        self._path.removeAll()
-                    }
-                ))
+                        onNavigateToAddGame: {
+                            self._path.append("add")
+                        },
+                        onSignOut: {
+                            self._path.removeAll()
+                        }
+                    )
+                    .environmentObject(self._firebaseManager)
+                )
             case "add":
                 return AnyView(AddGameView(onReturnToDashboard: {
-                    self._path.removeLast()
-                }))
+                        self._path.removeLast()
+                    })
+                    .environmentObject(self._firebaseManager)
+                )
             default:
                 return AnyView(EmptyView())
         }

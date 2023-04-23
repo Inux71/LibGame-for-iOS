@@ -14,6 +14,8 @@ struct DashboardView: View {
     
     @State private var _searchText: String = ""
     
+    @EnvironmentObject private var _firebaseManager: FirebaseManager
+    
     private let _auth: Auth
     private let _user: User?
     
