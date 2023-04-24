@@ -12,11 +12,28 @@ struct AddGameView: View {
     
     @State private var _searchText: String = ""
     
+    private var _searchedGames: [Game] {
+        if self._searchText.isEmpty {
+            return self._firebaseManager.games
+        } else {
+            return self._firebaseManager.games.filter {
+                $0.title.contains(self._searchText)
+            }
+        }
+    }
+    
     @EnvironmentObject private var _firebaseManager: FirebaseManager
     
     var body: some View {
-        List(self._firebaseManager.games) { game in
-            Text(game.title)
+        ScrollView {
+            LazyVStack {
+                ForEach(self._searchedGames) { game in
+                    GameCard(
+                        game: game,
+                        onReturnToDashboard: self.onReturnToDashboard
+                    )
+                }
+            }
         }
         .searchable(text: self.$_searchText, prompt: "Search")
         .navigationTitle("Add Game")

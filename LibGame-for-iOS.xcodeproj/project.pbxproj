@@ -29,6 +29,7 @@
 		CCBA8A2329F5992000FFCCE1 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA8A2229F5992000FFCCE1 /* AppConfig.swift */; };
 		CCBA8A2629F5A2BF00FFCCE1 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA8A2529F5A2BF00FFCCE1 /* Game.swift */; };
 		CCBA8A2929F5A32B00FFCCE1 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA8A2829F5A32B00FFCCE1 /* Status.swift */; };
+		CCE0197D29F6978800CC39AF /* GameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE0197C29F6978800CC39AF /* GameCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		CCBA8A2229F5992000FFCCE1 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		CCBA8A2529F5A2BF00FFCCE1 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		CCBA8A2829F5A32B00FFCCE1 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		CCE0197C29F6978800CC39AF /* GameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +141,26 @@
 		CCBA8A2729F5A31F00FFCCE1 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				CCBA8A2829F5A32B00FFCCE1 /* Status.swift */,
+				CCC1FFD829F6955B00AC9B5C /* components */,
+				CCC1FFD729F6954800AC9B5C /* enums */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		CCC1FFD729F6954800AC9B5C /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				CCBA8A2829F5A32B00FFCCE1 /* Status.swift */,
+			);
+			path = enums;
+			sourceTree = "<group>";
+		};
+		CCC1FFD829F6955B00AC9B5C /* components */ = {
+			isa = PBXGroup;
+			children = (
+				CCE0197C29F6978800CC39AF /* GameCard.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +259,7 @@
 				CC910C9129F3ED3C00815033 /* AddGameView.swift in Sources */,
 				CCBA8A1F29F597AA00FFCCE1 /* FirebaseManager.swift in Sources */,
 				CCA94FB329F3D58600F37A9B /* LibGameApp.swift in Sources */,
+				CCE0197D29F6978800CC39AF /* GameCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
