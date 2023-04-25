@@ -12,5 +12,5 @@ struct Game: Identifiable {
     let title: String
     let thumbnail: String
     let genre: String
-    let status: Status?
+    var status: Status?
 }

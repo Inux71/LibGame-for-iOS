@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum Status {
-    case PLAYING, PLAYED
+enum Status: String {
+    case PLAYING = "PLAYING"
+    case PLAYED = "PLAYED"
 }

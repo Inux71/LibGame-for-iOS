@@ -19,6 +19,16 @@ struct DashboardView: View {
     private let _auth: Auth
     private let _user: User?
     
+    private var _searchedGames: [Game] {
+        if self._searchText.isEmpty {
+            return self._firebaseManager.userGames
+        } else {
+            return self._firebaseManager.userGames.filter {
+                $0.title.contains(self._searchText)
+            }
+        }
+    }
+    
     init(onNavigateToAddGame: @escaping () -> Void, onSignOut: @escaping () -> Void) {
         self.onNavigateToAddGame = onNavigateToAddGame
         self.onSignOut = onSignOut
@@ -28,15 +38,33 @@ struct DashboardView: View {
     
     var body: some View {
         TabView {
-            Text("playing")
-                .tabItem {
-                    Label("Playing", systemImage: "checklist.unchecked")
+            ScrollView {
+                LazyVStack {
+                    ForEach(self._searchedGames.filter { $0.status == Status.PLAYING }) { game in
+                        GameCard(
+                            game: game,
+                            onReturnToDashboard: {}
+                        )
+                    }
                 }
+            }
+            .tabItem {
+                Label("Playing", systemImage: "checklist.unchecked")
+            }
             
-            Text("played")
-                .tabItem {
-                    Label("Played", systemImage: "checklist.checked")
+            ScrollView {
+                LazyVStack {
+                    ForEach(self._searchedGames.filter { $0.status == Status.PLAYED }) { game in
+                        GameCard(
+                            game: game,
+                            onReturnToDashboard: {}
+                        )
+                    }
                 }
+            }
+            .tabItem {
+                Label("Played", systemImage: "checklist.checked")
+            }
         }
         .navigationTitle(self._user?.displayName ?? "")
         .navigationBarBackButtonHidden(true)

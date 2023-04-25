@@ -31,6 +31,7 @@ struct FirebaseUIAuthView: UIViewControllerRepresentable {
             onNavigateToDashboard: self.onNavigateToDashboard,
             fetchDataFromFirebase: {
                 self._firebaseManager.fetchGames()
+                self._firebaseManager.fetchUserGames(for: Auth.auth().currentUser!.uid)
             }
         )
     }

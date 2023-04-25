@@ -20,8 +20,11 @@ struct LoginView: View {
                 .font(.system(size: 32, weight: .bold))
             
             Button("Sign In") {
-                if Auth.auth().currentUser != nil {
+                let user = Auth.auth().currentUser
+                
+                if user != nil {
                     self._firebaseManager.fetchGames()
+                    self._firebaseManager.fetchUserGames(for: user!.uid)
                     self.onNavigateToDashboard()
                 } else {
                     self.onNavigateToFirebaseUIAuth()
