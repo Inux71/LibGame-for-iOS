@@ -12,13 +12,19 @@ struct LoginView: View {
     var onNavigateToDashboard: () -> Void
     var onNavigateToFirebaseUIAuth: () -> Void
     
+    @EnvironmentObject private var _firebaseManager: FirebaseManager
+    
     var body: some View {
         VStack {
             Text("LibGame")
                 .font(.system(size: 32, weight: .bold))
             
             Button("Sign In") {
-                if Auth.auth().currentUser != nil {
+                let user = Auth.auth().currentUser
+                
+                if user != nil {
+                    self._firebaseManager.fetchGames()
+                    self._firebaseManager.fetchUserGames(userId: user!.uid)
                     self.onNavigateToDashboard()
                 } else {
                     self.onNavigateToFirebaseUIAuth()

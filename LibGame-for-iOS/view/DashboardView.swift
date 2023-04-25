@@ -14,8 +14,20 @@ struct DashboardView: View {
     
     @State private var _searchText: String = ""
     
+    @EnvironmentObject private var _firebaseManager: FirebaseManager
+    
     private let _auth: Auth
     private let _user: User?
+    
+    private var _searchedGames: [Game] {
+        if self._searchText.isEmpty {
+            return self._firebaseManager.userGames
+        } else {
+            return self._firebaseManager.userGames.filter {
+                $0.title.contains(self._searchText)
+            }
+        }
+    }
     
     init(onNavigateToAddGame: @escaping () -> Void, onSignOut: @escaping () -> Void) {
         self.onNavigateToAddGame = onNavigateToAddGame
@@ -26,15 +38,49 @@ struct DashboardView: View {
     
     var body: some View {
         TabView {
-            Text("playing")
-                .tabItem {
-                    Label("Playing", systemImage: "checklist.unchecked")
+            ScrollView {
+                LazyVStack {
+                    ForEach(self._searchedGames.filter { $0.status == Status.PLAYING }) { game in
+                        GameCard(
+                            isUserGame: true,
+                            game: game,
+                            onReturnToDashboard: {},
+                            onAddGame: {true},
+                            onDeleteGame: {
+                                self._firebaseManager.removeGameFromUser(userId: self._user!.uid, gameId: game.id)
+                            },
+                            onUpdateStatus: { status in
+                                self._firebaseManager.updateGameStatus(userId: self._user!.uid, gameId: game.id, status: status)
+                            }
+                        )
+                    }
                 }
+            }
+            .tabItem {
+                Label("Playing", systemImage: "checklist.unchecked")
+            }
             
-            Text("played")
-                .tabItem {
-                    Label("Played", systemImage: "checklist.checked")
+            ScrollView {
+                LazyVStack {
+                    ForEach(self._searchedGames.filter { $0.status == Status.PLAYED }) { game in
+                        GameCard(
+                            isUserGame: true,
+                            game: game,
+                            onReturnToDashboard: {},
+                            onAddGame: {true},
+                            onDeleteGame: {
+                                self._firebaseManager.removeGameFromUser(userId: self._user!.uid, gameId: game.id)
+                            },
+                            onUpdateStatus: { status in
+                                self._firebaseManager.updateGameStatus(userId: self._user!.uid, gameId: game.id, status: status)
+                            }
+                        )
+                    }
                 }
+            }
+            .tabItem {
+                Label("Played", systemImage: "checklist.checked")
+            }
         }
         .navigationTitle(self._user?.displayName ?? "")
         .navigationBarBackButtonHidden(true)
