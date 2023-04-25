@@ -19,11 +19,21 @@ struct DashboardView: View {
     private let _auth: Auth
     private let _user: User?
     
-    private var _searchedGames: [Game] {
+    private var _searchedPlayingGames: [Game] {
         if self._searchText.isEmpty {
-            return self._firebaseManager.userGames
+            return self._firebaseManager.userPlayingGames
         } else {
-            return self._firebaseManager.userGames.filter {
+            return self._firebaseManager.userPlayingGames.filter {
+                $0.title.contains(self._searchText)
+            }
+        }
+    }
+    
+    private var _searchedPlayedGames: [Game] {
+        if self._searchText.isEmpty {
+            return self._firebaseManager.userPlayedGames
+        } else {
+            return self._firebaseManager.userPlayedGames.filter {
                 $0.title.contains(self._searchText)
             }
         }
@@ -40,7 +50,7 @@ struct DashboardView: View {
         TabView {
             ScrollView {
                 LazyVStack {
-                    ForEach(self._searchedGames.filter { $0.status == Status.PLAYING }) { game in
+                    ForEach(self._searchedPlayingGames) { game in
                         GameCard(
                             isUserGame: true,
                             game: game,
@@ -62,7 +72,7 @@ struct DashboardView: View {
             
             ScrollView {
                 LazyVStack {
-                    ForEach(self._searchedGames.filter { $0.status == Status.PLAYED }) { game in
+                    ForEach(self._searchedPlayedGames) { game in
                         GameCard(
                             isUserGame: true,
                             game: game,

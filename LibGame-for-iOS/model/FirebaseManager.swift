@@ -16,7 +16,9 @@ class FirebaseManager: ObservableObject {
     private let _userGamesRef: DatabaseReference
     
     @Published var games = [Game]()
-    @Published var userGames = [Game]()
+    private var _userGames = [Game]()
+    @Published var userPlayingGames = [Game]()
+    @Published var userPlayedGames = [Game]()
     
     init() {
         self._database = Database.database(url: AppConfig.DATABASE_URL)
@@ -55,6 +57,10 @@ class FirebaseManager: ObservableObject {
         self._userGamesRef
             .child(userId)
             .observe(.value, with: { snapshot in
+                self._userGames.removeAll()
+                self.userPlayingGames.removeAll()
+                self.userPlayedGames.removeAll()
+                
                 for child in snapshot.children {
                     if let dataSnapshot = child as? DataSnapshot,
                        let gameDict = dataSnapshot.value as? [String: Any],
@@ -65,14 +71,18 @@ class FirebaseManager: ObservableObject {
                         var game = self.getGameById(for: gameId)
                         game.status = enumStatus
                         
-                        self.userGames.append(game)
+                        if enumStatus == Status.PLAYING {
+                            self.userPlayingGames.append(game)
+                        } else {
+                            self.userPlayedGames.append(game)
+                        }
                     }
                 }
-        })
+            })
     }
     
     func addGameToUser(userId: String, gameId: Int) -> Bool {
-        if self.userGames.contains(where: { $0.id == gameId }) {
+        if self._userGames.contains(where: { $0.id == gameId }) {
             return false
         }
         
