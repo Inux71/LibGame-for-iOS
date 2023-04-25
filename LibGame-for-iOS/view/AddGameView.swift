@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct AddGameView: View {
     var onReturnToDashboard: () -> Void
@@ -31,7 +32,12 @@ struct AddGameView: View {
                     GameCard(
                         isUserGame: false,
                         game: game,
-                        onReturnToDashboard: self.onReturnToDashboard
+                        onReturnToDashboard: self.onReturnToDashboard,
+                        onAddGame: {
+                            self._firebaseManager.addGameToUser(userId: Auth.auth().currentUser!.uid, gameId: game.id)
+                        },
+                        onDeleteGame: {},
+                        onUpdateStatus: {_ in }
                     )
                 }
             }

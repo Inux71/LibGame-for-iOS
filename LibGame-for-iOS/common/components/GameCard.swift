@@ -11,13 +11,27 @@ struct GameCard: View {
     var isUserGame: Bool
     var game: Game
     var onReturnToDashboard: () -> Void
+    var onAddGame: () -> Bool
+    var onDeleteGame: () -> Void
+    var onUpdateStatus: (_ status: Status) -> Void
     
     @State private var _selectedStatus: String
     
-    init(isUserGame: Bool, game: Game, onReturnToDashboard: @escaping () -> Void) {
+    init(
+        isUserGame: Bool,
+        game: Game,
+        onReturnToDashboard: @escaping () -> Void,
+        onAddGame: @escaping () -> Bool,
+        onDeleteGame: @escaping () -> Void,
+        onUpdateStatus: @escaping (_ status: Status) -> Void
+    ) {
         self.isUserGame = isUserGame
         self.game = game
         self.onReturnToDashboard = onReturnToDashboard
+        self.onAddGame = onAddGame
+        self.onDeleteGame = onDeleteGame
+        self.onUpdateStatus = onUpdateStatus
+        
         self._selectedStatus = self.game.status!.rawValue
     }
     
@@ -27,7 +41,7 @@ struct GameCard: View {
                 HStack {
                     Spacer()
                     
-                    Button(action: {}) {
+                    Button(action: self.onDeleteGame) {
                         Image(systemName: "xmark")
                     }
                 }
@@ -54,10 +68,15 @@ struct GameCard: View {
                                 Text($0.rawValue)
                             }
                         }
+                        .onChange(of: self._selectedStatus) { status in
+                            self.onUpdateStatus(Status(rawValue: status)!)
+                        }
                     }
                 } else {
                     Button(action: {
-                        self.onReturnToDashboard()
+                        if self.onAddGame() {
+                            self.onReturnToDashboard()
+                        }
                     }) {
                         Image(systemName: "plus")
                     }

@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseCore
 import FirebaseDatabase
+import FirebaseAuth
 
 class FirebaseManager: ObservableObject {
     private let _database: Database
@@ -50,9 +51,9 @@ class FirebaseManager: ObservableObject {
         })
     }
     
-    func fetchUserGames(for userID: String) {
+    func fetchUserGames(userId: String) {
         self._userGamesRef
-            .child(userID)
+            .child(userId)
             .observe(.value, with: { snapshot in
                 for child in snapshot.children {
                     if let dataSnapshot = child as? DataSnapshot,
@@ -68,5 +69,36 @@ class FirebaseManager: ObservableObject {
                     }
                 }
         })
+    }
+    
+    func addGameToUser(userId: String, gameId: Int) -> Bool {
+        if self.userGames.contains(where: { $0.id == gameId }) {
+            return false
+        }
+        
+        let userGame: [String: Any] = ["gameId": gameId, "status": Status.PLAYING.rawValue]
+        
+        self._userGamesRef
+            .child(userId)
+            .child("\(gameId)")
+            .setValue(userGame)
+        
+        return true
+    }
+    
+    func removeGameFromUser(userId: String, gameId: Int) {
+        self._userGamesRef
+            .child(userId)
+            .child("\(gameId)")
+            .removeValue()
+    }
+    
+    func updateGameStatus(userId: String, gameId: Int, status: Status) {
+        let userGame: [String: Any] = ["gameId": gameId, "status": status.rawValue]
+        
+        self._userGamesRef
+            .child(userId)
+            .child("\(gameId)")
+            .setValue(userGame)
     }
 }

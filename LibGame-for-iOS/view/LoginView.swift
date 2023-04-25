@@ -24,7 +24,7 @@ struct LoginView: View {
                 
                 if user != nil {
                     self._firebaseManager.fetchGames()
-                    self._firebaseManager.fetchUserGames(for: user!.uid)
+                    self._firebaseManager.fetchUserGames(userId: user!.uid)
                     self.onNavigateToDashboard()
                 } else {
                     self.onNavigateToFirebaseUIAuth()

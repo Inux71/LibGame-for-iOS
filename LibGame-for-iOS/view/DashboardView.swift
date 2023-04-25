@@ -44,7 +44,14 @@ struct DashboardView: View {
                         GameCard(
                             isUserGame: true,
                             game: game,
-                            onReturnToDashboard: {}
+                            onReturnToDashboard: {},
+                            onAddGame: {true},
+                            onDeleteGame: {
+                                self._firebaseManager.removeGameFromUser(userId: self._user!.uid, gameId: game.id)
+                            },
+                            onUpdateStatus: { status in
+                                self._firebaseManager.updateGameStatus(userId: self._user!.uid, gameId: game.id, status: status)
+                            }
                         )
                     }
                 }
@@ -59,7 +66,14 @@ struct DashboardView: View {
                         GameCard(
                             isUserGame: true,
                             game: game,
-                            onReturnToDashboard: {}
+                            onReturnToDashboard: {},
+                            onAddGame: {true},
+                            onDeleteGame: {
+                                self._firebaseManager.removeGameFromUser(userId: self._user!.uid, gameId: game.id)
+                            },
+                            onUpdateStatus: { status in
+                                self._firebaseManager.updateGameStatus(userId: self._user!.uid, gameId: game.id, status: status)
+                            }
                         )
                     }
                 }
