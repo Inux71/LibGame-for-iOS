@@ -42,6 +42,7 @@ struct DashboardView: View {
                 LazyVStack {
                     ForEach(self._searchedGames.filter { $0.status == Status.PLAYING }) { game in
                         GameCard(
+                            isUserGame: true,
                             game: game,
                             onReturnToDashboard: {}
                         )
@@ -56,6 +57,7 @@ struct DashboardView: View {
                 LazyVStack {
                     ForEach(self._searchedGames.filter { $0.status == Status.PLAYED }) { game in
                         GameCard(
+                            isUserGame: true,
                             game: game,
                             onReturnToDashboard: {}
                         )

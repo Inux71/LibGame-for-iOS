@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Status: String {
+enum Status: String, CaseIterable {
     case PLAYING = "PLAYING"
     case PLAYED = "PLAYED"
 }

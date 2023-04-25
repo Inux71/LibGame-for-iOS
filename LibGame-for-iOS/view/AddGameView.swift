@@ -29,6 +29,7 @@ struct AddGameView: View {
             LazyVStack {
                 ForEach(self._searchedGames) { game in
                     GameCard(
+                        isUserGame: false,
                         game: game,
                         onReturnToDashboard: self.onReturnToDashboard
                     )

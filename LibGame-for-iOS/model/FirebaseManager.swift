@@ -41,7 +41,7 @@ class FirebaseManager: ObservableObject {
                         title: title,
                         thumbnail: thumbnail,
                         genre: genre,
-                        status: nil
+                        status: Status.PLAYING
                     )
                     
                     self.games.append(game)
